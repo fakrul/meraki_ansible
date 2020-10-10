@@ -3,7 +3,7 @@
   connection: local
   hosts: localhost
   vars:
-    auth_key: "{{ auth }}"
+    auth_key: "{{ auth_key }}"
     org_name: "{{ org }}"
     switch_serial: "{{ switch_serial }}"
 
