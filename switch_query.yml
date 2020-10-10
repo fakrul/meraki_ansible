@@ -1,0 +1,19 @@
+---
+- name: meraki deployment
+  connection: local
+  hosts: localhost
+  vars:
+    auth_key: "{{ auth }}"
+    org_name: "{{ org }}"
+    switch_serial: "{{ switch_serial }}"
+
+  tasks:
+   - name: Query information about all switchports on a switch
+     meraki_switchport:
+       auth_key: "{{ auth_key }}"
+       serial: "{{ switch_serial }}"
+       state: query
+     delegate_to: localhost
+     register: switchinfo
+
+   - debug: var=switchinfo
