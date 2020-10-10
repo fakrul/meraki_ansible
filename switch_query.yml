@@ -2,8 +2,9 @@
 - name: meraki deployment
   connection: local
   hosts: localhost
+  vars_files:
+    - "secrets/vault.yml"
   vars:
-    auth_key: "{{ auth_key }}"
     org_name: "{{ org }}"
     switch_serial: "{{ switch_serial }}"
 
