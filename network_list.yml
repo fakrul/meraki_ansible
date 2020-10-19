@@ -1,0 +1,19 @@
+---
+- name: get mearki network
+  connection: local
+  hosts: localhost
+  vars_files:
+    - "secrets/vault.yml"
+  vars:
+    org_id: "{{ org }}"
+
+  tasks:
+   - name: get the list of network for organization {{ org_id }}
+     meraki_network:
+       auth_key: "{{ auth_key }}"
+       org_id: "{{ org_id }}"
+       state: query
+     delegate_to: localhost
+     register: networkinformation
+
+   - debug: var=networkinformation
