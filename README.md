@@ -1,1 +1,3 @@
-# meraki_ansible
+# Meraki Ansible
+
+Ansible modules for Meraki
